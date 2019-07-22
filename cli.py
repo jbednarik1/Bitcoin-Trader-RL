@@ -1,8 +1,10 @@
 import numpy as np
+import lib.data as data
 
 from multiprocessing import Process
 
 from lib.cli.RLTraderCLI import RLTraderCLI
+
 from lib.util.logger import init_logger
 from lib.cli.functions import download_data_async
 from lib.env.reward import BaseRewardStrategy, IncrementalProfit, WeightedUnrealizedProfit
@@ -25,6 +27,10 @@ def run_optimize(args, logger):
 
 if __name__ == '__main__':
     logger = init_logger(__name__, show_debug=args.debug)
+
+    if args.command == 'gensin':
+        data.create_sin()
+        exit(0)
 
     if args.command == 'optimize':
         n_processes = args.parallel_jobs

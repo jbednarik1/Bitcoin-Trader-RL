@@ -72,6 +72,8 @@ class RLTraderCLI:
 
         subparsers.add_parser('update-static-data', description='Update static data')
 
+        subparsers.add_parser('gensin', description='Generate SIN data')
+
         self.parser.set_defaults(**defaults)
 
     def get_args(self):
